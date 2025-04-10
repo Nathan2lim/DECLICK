@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atacama Group</title>
+  <style>
+    @font-face {
+      font-family: 'Degular';
+      src: url('degular-font-family-1725972412-0/DegularText-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: 'Degular';
+      src: url('degular-font-family-1725972412-0/DegularText-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: 'Degular';
+      src: url('degular-font-family-1725972412-0/DegularText-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: 'Degular Display';
+      src: url('degular-font-family-1725972412-0/DegularDisplay-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    
+    :root {
+      --forest-green: #264D3B;
+      --light-green: #B4DEB2;
+      --soft-yellow: #F2E863;
+      --pale-ochre: #FFD369;
+      --off-white: #F5F5F0;
+      --graphite-grey: #6B6B6B;
+      --rounded: 20px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Degular', sans-serif;
+      background: var(--off-white);
+      color: var(--forest-green);
+      font-size: 16px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: var(--off-white);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header nav {
+      display: flex;
+      align-items: center;
+    }
+    header nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: var(--forest-green);
+      font-weight: 500;
+      font-size: 18px;
+    }
+    header .btn {
+      background: var(--forest-green);
+      color: var(--off-white);
+      padding: 8px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 60px 40px;
+    }
+    .hero-left {
+      background: var(--soft-yellow);
+      border-radius: var(--rounded);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-left h1 {
+      font-family: 'Degular Display', sans-serif;
+      font-size: 42px;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    .subscribe-box {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .subscribe-box input {
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      width: 60%;
+      font-size: 16px;
+    }
+    .subscribe-box button {
+      background: var(--forest-green);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .hero-right {
+      border-radius: var(--rounded);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      max-height: 500px;
+      object-fit: cover;
+    }
+    .section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .section h2 {
+      font-family: 'Degular Display', sans-serif;
+      color: var(--forest-green);
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+    .section p {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .badges {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .badges div {
+      border-radius: 40px;
+      padding: 15px 30px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .badge-1 { background: var(--off-white); }
+    .badge-2 { background: var(--light-green); }
+    .badge-3 { background: var(--soft-yellow); }
+
+    table {
+      width: 90%;
+      margin: 40px auto;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 20px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      font-size: 16px;
+    }
+    th {
+      background: var(--off-white);
+      color: var(--forest-green);
+      font-size: 18px;
+    }
+    .tags span {
+      background: var(--pale-ochre);
+      border-radius: 12px;
+      padding: 5px 10px;
+      font-size: 12px;
+      margin-right: 6px;
+      color: var(--forest-green);
+    }
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px 20px;
+    }
+    .card {
+      background: white;
+      border-radius: var(--rounded);
+      overflow: hidden;
+      width: 220px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+    .card img {
+      width: 100%;
+      height: 100px;
+      max-height: 100px;
+      object-fit: cover;
+    }
+    .card p {
+      padding: 15px;
+      font-weight: bold;
+      color: var(--forest-green);
+      font-size: 18px;
+    }
+    footer {
+      background: var(--light-green);
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--forest-green);
+    }
+    footer h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    footer input {
+      padding: 10px;
+      width: 250px;
+      border-radius: 20px;
+      border: 1px solid var(--off-white);
+      margin-right: 10px;
+      font-size: 16px;
+    }
+    footer button {
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      background: var(--forest-green);
+      color: var(--off-white);
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .footer-bottom {
+      margin-top: 30px;
+      font-size: 16px;
+      color: var(--graphite-grey);
+    }
+
+    /* Style modifié pour le sélecteur de langue */
+    .language-switch {
+      position: relative;
+      background: var(--forest-green);
+      color: var(--off-white);
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      padding: 8px 15px;
+      margin-left: 15px;
+    }
+
+    .language-switch:hover {
+      transform: scale(1.05);
+      background: var(--pale-ochre);
+      color: var(--forest-green);
+    }
+    
+    .language-menu {
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background: var(--off-white);
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      width: 200px;
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 101;
+      display: none;
+      padding: 10px 0;
+    }
+    
+    /* Styles manquants pour les options de langue */
+    .language-menu.active {
+      display: block;
+    }
+    
+    .language-option {
+      padding: 8px 15px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+    }
+    
+    .language-option:hover {
+      background: var(--light-green);
+    }
+    
+    .language-option.selected {
+      background: var(--forest-green);
+      color: var(--off-white);
+    }
+
+    /* Styles pour le calculateur d'empreinte carbone */
+    .co2-calculator {
+      background: var(--light-green);
+      border-radius: var(--rounded);
+      padding: 40px;
+      margin: 40px auto;
+      max-width: 800px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .co2-calculator h2 {
+      color: var(--forest-green);
+      margin-bottom: 20px;
+      font-family: 'Degular Display', sans-serif;
+      font-size: 32px;
+    }
+
+    .co2-calculator p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: var(--forest-green);
+    }
+
+    .calculator-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--forest-green);
+      font-size: 16px;
+    }
+
+    .form-group input[type="range"] {
+      width: 100%;
+      margin-top: 10px;
+      accent-color: var(--forest-green);
+      cursor: pointer;
+    }
+
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      background: var(--off-white);
+      font-family: 'Degular', sans-serif;
+      font-size: 16px;
+    }
+
+    .value-display {
+      font-weight: bold;
+      display: inline-block;
+      min-width: 30px;
+      text-align: center;
+    }
+
+    .calculate-btn {
+      background: var(--forest-green);
+      color: var(--off-white);
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      margin: 20px 0;
+      transition: all 0.3s ease;
+      font-family: 'Degular', sans-serif;
+    }
+
+    .calculate-btn:hover {
+      background: var(--soft-yellow);
+      color: var(--forest-green);
+      transform: scale(1.05);
+    }
+
+    .result-container {
+      margin-top: 30px;
+      text-align: center;
+      padding: 20px;
+      border-radius: var(--rounded);
+      background: var(--off-white);
+      display: none;
+    }
+
+    .result-container.active {
+      display: block;
+      animation: fadeIn 0.5s;
+    }
+
+    .result-container h3 {
+      color: var(--forest-green);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .result-value {
+      font-size: 36px;
+      font-weight: bold;
+      color: var(--forest-green);
+      margin: 15px 0;
+    }
+
+    .result-comparison {
+      margin: 20px 0;
+      font-size: 18px;
+      color: var(--forest-green);
+    }
+
+    .real-world-equivalent {
+      background: var(--soft-yellow);
+      padding: 20px;
+      border-radius: var(--rounded);
+      margin: 20px 0;
+    }
+
+    .equivalent-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .equivalent-text {
+      flex: 1;
+      min-width: 300px;
+      padding: 0 20px;
+      font-size: 16px;
+      text-align: left;
+      color: var(--forest-green);
+    }
+
+    #equivalent-img {
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .eco-tips {
+      background: var(--light-green);
+      padding: 20px;
+      border-radius: var(--rounded);
+      margin-top: 20px;
+    }
+
+    .eco-tips h3 {
+      color: var(--forest-green);
+      margin-bottom: 15px;
+    }
+
+    .eco-tips ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    .eco-tips li {
+      margin-bottom: 10px;
+      color: var(--forest-green);
+      font-size: 16px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #co2-gauge {
+      width: 100%;
+      height: 30px;
+      background: linear-gradient(to right, #4CAF50, #FFEB3B, #FF5722);
+      border-radius: 15px;
+      margin: 15px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #co2-marker {
+      width: 10px;
+      height: 40px;
+      background: var(--forest-green);
+      position: absolute;
+      top: -5px;
+      left: 0;
+      transform: translateX(-50%);
+      border-radius: 5px;
+      transition: left 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  </style>
+</head>
+<body>
+ 
+  <header>
+    <div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Contribution</a>
+        <a href="#">Our Mission</a>
+      </nav>
+    </div>
+    <div><strong>DECLICK</strong></div>
+    <div>
+      <nav>
+        <a href="#">Problems</a>
+        <a href="#">Projects</a>
+        <a href="#" class="btn">Contact Us</a>
+        
+        <!-- Bouton de sélection de langue intégré dans la navigation -->
+        <div id="langSwitch" class="language-switch" title="Changer de langue">
+          <span id="currentLang">Français</span>
+        </div>
+        
+        <!-- Menu déroulant des langues -->
+        <div id="langMenu" class="language-menu">
+          <div class="language-option selected" data-lang="fr"><span>Français</span></div>
+          <div class="language-option" data-lang="en"><span>English</span></div>
+          <div class="language-option" data-lang="ar"><span>العربية (Arabe)</span></div>
+          <div class="language-option" data-lang="pt"><span>Português (Portugais)</span></div>
+          <div class="language-option" data-lang="es"><span>Español (Espagnol)</span></div>
+          <div class="language-option" data-lang="it"><span>Italiano (Italien)</span></div>
+          <div class="language-option" data-lang="de"><span>Deutsch (Allemand)</span></div>
+          <div class="language-option" data-lang="tr"><span>Türkçe (Turc)</span></div>
+          <div class="language-option" data-lang="pl"><span>Polski (Polonais)</span></div>
+          <div class="language-option" data-lang="ro"><span>Română (Roumain)</span></div>
+          <div class="language-option" data-lang="pt-br"><span>Português do Brasil</span></div>
+          <div class="language-option" data-lang="zh"><span>中文 (Chinois)</span></div>
+          <div class="language-option" data-lang="ru"><span>Русский (Russe)</span></div>
+          <div class="language-option" data-lang="vi"><span>Tiếng Việt (Vietnamien)</span></div>
+          <div class="language-option" data-lang="km"><span>ភាសាខ្មែរ (Khmer)</span></div>
+          <div class="language-option" data-lang="ber"><span>ⵜⴰⵎⴰⵣⵉⵖⵜ (Berbère)</span></div>
+          <div class="language-option" data-lang="nl"><span>Nederlands (Néerlandais)</span></div>
+          <div class="language-option" data-lang="ja"><span>日本語 (Japonais)</span></div>
+          <div class="language-option" data-lang="ko"><span>한국어 (Coréen)</span></div>
+          <div class="language-option" data-lang="arm"><span>Հայերեն (Arménien)</span></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-left">
+      <div>
+        <h1>Saving <span>Nature</span> & Fighting <span>Climate</span><br />Change Together.</h1>
+        <div class="subscribe-box">
+          <input type="email" placeholder="Enter your e-mail" />
+          <button>Subscribe →</button>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="img/image1.jpg" alt="Nature landscape" />
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Let's Make Our World Cleaner & Greener!</h2>
+    <p>We work with partners & communities to ensure nature thrives and climate change is reversed.</p>
+    <div class="badges">
+      <div class="badge-1">We</div>
+      <div class="badge-2">Protect</div>
+      <div class="badge-3">→</div>
+      <div class="badge-1">Nature</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Our initiatives for 2023</h2>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Tags</th>
+        <th>Date</th>
+      </tr>
+      <tr>
+        <td>Tree planting</td>
+        <td class="tags"><span>green and cleaner</span></td>
+        <td>12/03/23</td>
+      </tr>
+      <tr>
+        <td>Beach cleanup</td>
+        <td class="tags"><span>future generations</span></td>
+        <td>29/05/23</td>
+      </tr>
+      <tr>
+        <td>Educational events</td>
+        <td class="tags"><span>courses</span><span>green initiatives</span></td>
+        <td>06/06/23</td>
+      </tr>
+      <tr>
+        <td>Park cleaning</td>
+        <td class="tags"><span>day off cleaning</span></td>
+        <td>18/08/23</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="cards">
+    <div class="card">
+      <img src="img/image2.png" alt="Ocean Pollution">
+      <p>Ocean Pollution</p>
+    </div>
+    <div class="card">
+      <img src="img/image3.jpg" alt="Glacier Melting">
+      <p>Glacier Melting</p>
+    </div>
+    <div class="card">
+      <img src="img/image4.jpg" alt="Forest Clearance">
+      <p>Forest Clearance</p>
+    </div>
+    <div class="card">
+      <img src="img/image5.jpg" alt="GHG Emissions">
+      <p>GHG Emissions</p>
+    </div>
+  </section>
+
+  <!-- Calculateur d'empreinte carbone -->
+  <section class="co2-calculator">
+    <h2>Calculez votre empreinte carbone annuelle</h2>
+    <p>Découvrez votre impact environnemental en tonnes de CO2 par an et recevez des conseils personnalisés pour réduire votre empreinte.</p>
+    
+    <div class="calculator-form">
+      <div>
+        <div class="form-group">
+          <label>Transport quotidien:</label>
+          <select id="transportation">
+            <option value="0">Marche à pied ou vélo</option>
+            <option value="0.5">Transport en commun</option>
+            <option value="1.5" selected>Voiture (< 10 km/jour)</option>
+            <option value="4">Voiture (10-30 km/jour)</option>
+            <option value="7.2">Voiture (> 30 km/jour)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Voyages en avion par an:</label>
+          <input type="range" id="flights" min="0" max="10" value="1" step="1">
+          <div>Nombre de voyages: <span class="value-display" id="flights-value">1</span></div>
+        </div>
+        
+        <div class="form-group">
+          <label>Consommation de viande:</label>
+          <select id="meat">
+            <option value="0">Végétalien/Végétarien</option>
+            <option value="0.8">Peu de viande (1-2 fois/semaine)</option>
+            <option value="1.5" selected>Modérée (3-5 fois/semaine)</option>
+            <option value="2.5">Élevée (quotidienne)</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <div class="form-group">
+          <label>Consommation d'énergie domestique:</label>
+          <select id="energy">
+            <option value="1">Très économe (énergies renouvelables)</option>
+            <option value="2" selected>Modérée</option>
+            <option value="3.5">Élevée (grand logement, chauffage intensif)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Achats de biens de consommation:</label>
+          <select id="shopping">
+            <option value="0.5">Minimaliste (achat d'occasion, réparation)</option>
+            <option value="1.5" selected>Modéré</option>
+            <option value="3">Fréquent (vêtements, électronique, etc.)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Pratiques écologiques:</label>
+          <select id="eco-practices">
+            <option value="0.6">Très engagé (compost, recyclage, zéro déchet)</option>
+            <option value="1" selected>Modéré (recyclage basique)</option>
+            <option value="1.5">Peu de pratiques écologiques</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    
+    <div style="text-align: center;">
+      <button id="calculate-btn" class="calculate-btn">Calculer mon empreinte carbone</button>
+    </div>
+    
+    <div class="result-container" id="result">
+      <h3>Votre empreinte carbone annuelle est de:</h3>
+      <div class="result-value" id="co2-result">0 tonnes de CO2</div>
+      
+      <div id="co2-gauge">
+        <div id="co2-marker"></div>
+      </div>
+      
+      <div class="result-comparison" id="comparison">
+        Par rapport à la moyenne mondiale de 4,8 tonnes de CO2 par personne.
+      </div>
+      
+      <!-- Nouvelle section pour les équivalences concrètes -->
+      <div class="real-world-equivalent">
+        <h3>Équivalent dans la vie réelle:</h3>
+        <div class="equivalent-container">
+          <img id="equivalent-img" src="" alt="Équivalence réelle" style="max-height: 120px; margin: 15px;">
+          <p id="equivalent-text" class="equivalent-text"></p>
+        </div>
+      </div>
+      
+      <div class="eco-tips" id="eco-tips">
+        <h3>Conseils personnalisés pour réduire votre empreinte:</h3>
+        <ul id="tips-list">
+          <!-- Les conseils seront ajoutés dynamiquement -->
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h3>Subscribe to our newsletter to get the latest updates on missions projects & initiatives.</h3>
+    <div class="footer-subscribe">
+      <input type="email" placeholder="Email address" />
+      <button>Subscribe →</button>
+    </div>
+    <div class="footer-bottom">
+      ©2023. All Right Reserved · Atacama · Facebook · Twitter · Instagram
+    </div>
+  </footer>
+
+  <!-- Script pour changer de langue -->
+  <script>
+    // Dictionnaire de traduction
+    const translations = {
+      en: {
+        nav: ["Home", "Contribution", "Our Mission", "Problems", "Projects", "Contact Us"],
+        hero: {
+          title: "Saving <span>Nature</span> & Fighting <span>Climate</span><br />Change Together.",
+          buttonText: "Subscribe →",
+          placeholder: "Enter your e-mail"
+        },
+        section1: {
+          title: "Let's Make Our World Cleaner & Greener!",
+          content: "We work with partners & communities to ensure nature thrives and climate change is reversed."
+        },
+        badges: ["We", "Protect", "→", "Nature"],
+        section2: {
+          title: "Our initiatives for 2023",
+          tableHeaders: ["Title", "Tags", "Date"],
+          tableRows: [
+            ["Tree planting", "green and cleaner", "12/03/23"],
+            ["Beach cleanup", "future generations", "29/05/23"],
+            ["Educational events", "courses", "green initiatives", "06/06/23"],
+            ["Park cleaning", "day off cleaning", "18/08/23"]
+          ]
+        },
+        cards: ["Ocean Pollution", "Glacier Melting", "Forest Clearance", "GHG Emissions"],
+        footer: {
+          title: "Subscribe to our newsletter to get the latest updates on missions projects & initiatives.",
+          placeholder: "Email address",
+          buttonText: "Subscribe →",
+          copyright: "©2023. All Right Reserved · Atacama · Facebook · Twitter · Instagram"
+        }
+      },
+      fr: {
+        nav: ["Accueil", "Contribution", "Notre Mission", "Problèmes", "Projets", "Contactez-nous"],
+        hero: {
+          title: "Sauvons la <span>Nature</span> & Luttons contre le <span>Changement</span><br />Climatique Ensemble.",
+          buttonText: "S'abonner →",
+          placeholder: "Entrez votre e-mail"
+        },
+        section1: {
+          title: "Rendons Notre Monde Plus Propre & Plus Vert !",
+          content: "Nous travaillons avec des partenaires et des communautés pour que la nature prospère et que le changement climatique soit inversé."
+        },
+        badges: ["Nous", "Protégeons", "→", "la Nature"],
+        section2: {
+          title: "Nos initiatives pour 2023",
+          tableHeaders: ["Titre", "Tags", "Date"],
+          tableRows: [
+            ["Plantation d'arbres", "vert et plus propre", "12/03/23"],
+            ["Nettoyage de plage", "générations futures", "29/05/23"],
+            ["Événements éducatifs", "cours", "initiatives vertes", "06/06/23"],
+            ["Nettoyage de parc", "journée de nettoyage", "18/08/23"]
+          ]
+        },
+        cards: ["Pollution des Océans", "Fonte des Glaciers", "Déforestation", "Émissions de GES"],
+        footer: {
+          title: "Abonnez-vous à notre newsletter pour recevoir les dernières mises à jour sur nos missions, projets et initiatives.",
+          placeholder: "Adresse e-mail",
+          buttonText: "S'abonner →",
+          copyright: "©2023. Tous droits réservés · Atacama · Facebook · Twitter · Instagram"
+        }
+      },
+      ar: {
+        nav: ["الرئيسية", "المساهمة", "مهمتنا", "المشاكل", "المشاريع", "اتصل بنا"],
+        hero: {
+          title: "إنقاذ <span>الطبيعة</span> ومكافحة <span>تغير</span><br />المناخ معًا.",
+          buttonText: "اشترك →",
+          placeholder: "أدخل بريدك الإلكتروني"
+        },
+        section1: {
+          title: "دعونا نجعل عالمنا أنظف وأكثر خضرة!",
+          content: "نعمل مع الشركاء والمجتمعات لضمان ازدهار الطبيعة وعكس تغير المناخ."
+        },
+        badges: ["نحن", "نحمي", "→", "الطبيعة"],
+        section2: {
+          title: "مبادراتنا لعام 2023",
+          tableHeaders: ["العنوان", "العلامات", "التاريخ"],
+          tableRows: [
+            ["زراعة الأشجار", "أخضر وأنظف", "12/03/23"],
+            ["تنظيف الشاطئ", "الأجيال القادمة", "29/05/23"],
+            ["الفعاليات التعليمية", "الدورات", "المبادرات الخضراء", "06/06/23"],
+            ["تنظيف الحديقة", "يوم التنظيف", "18/08/23"]
+          ]
+        },
+        cards: ["تلوث المحيطات", "ذوبان الأنهار الجليدية", "إزالة الغابات", "انبعاثات الغازات الدفيئة"],
+        footer: {
+          title: "اشترك في نشرتنا الإخبارية للحصول على آخر التحديثات حول مشاريع ومبادرات البعثات.",
+          placeholder: "عنوان البريد الإلكتروني",
+          buttonText: "اشترك →",
+          copyright: "©2023. جميع الحقوق محفوظة · أتاكاما · فيسبوك · تويتر · انستغرام"
+        }
+      },
+      // Autres langues de base ajoutées. Les traductions pour les langues restantes
+      // seraient à ajouter de la même manière, mais sont omises ici pour la brièveté
+    };
+
+    // Langue actuelle
+    let currentLang = 'fr';
+
+    // Fonction pour changer la langue
+    function switchLanguage(lang) {
+      // Stocker la langue sélectionnée
+      currentLang = lang;
+      
+      // Mise à jour de l'interface
+      updateInterface();
+      
+      // Mettre à jour la sélection dans le menu
+      document.querySelectorAll('.language-option').forEach(option => {
+        option.classList.remove('selected');
+      });
+      document.querySelector(`.language-option[data-lang="${lang}"]`).classList.add('selected');
+      
+      // Fermer le menu des langues
+      document.getElementById('langMenu').classList.remove('active');
+    }
+    
+    // Mettre à jour l'interface avec la langue sélectionnée
+    function updateInterface() {
+      // Si la traduction existe
+      if (!translations[currentLang]) {
+        // Utiliser anglais par défaut si la traduction n'existe pas encore
+        currentLang = 'en'; 
+      }
+      
+      const trans = translations[currentLang];
+      
+      // Mettre à jour l'attribut lang de la balise html
+      document.documentElement.lang = currentLang;
+      
+      // Mettre à jour le texte du bouton
+      document.getElementById('currentLang').textContent = document.querySelector(`.language-option[data-lang="${currentLang}"] span`).textContent;
+      
+      // Mettre à jour les éléments de navigation
+      const navLinks = document.querySelectorAll('header nav a');
+      
+      // Navigation du haut
+      for (let i = 0; i < 3; i++) {
+        navLinks[i].textContent = trans.nav[i];
+      }
+      
+      // Navigation de droite
+      for (let i = 3; i < 5; i++) {
+        navLinks[i].textContent = trans.nav[i];
+      }
+      navLinks[5].textContent = trans.nav[5];
+      
+      // Hero section
+      document.querySelector('.hero-left h1').innerHTML = trans.hero.title;
+      document.querySelector('.subscribe-box input').placeholder = trans.hero.placeholder;
+      document.querySelector('.subscribe-box button').textContent = trans.hero.buttonText;
+      
+      // Section 1
+      const sections = document.querySelectorAll('.section');
+      sections[0].querySelector('h2').textContent = trans.section1.title;
+      sections[0].querySelector('p').textContent = trans.section1.content;
+      
+      // Badges
+      const badges = document.querySelectorAll('.badges div');
+      badges.forEach((badge, index) => {
+        badge.textContent = trans.badges[index];
+      });
+      
+      // Section 2
+      sections[1].querySelector('h2').textContent = trans.section2.title;
+      
+      // Tableau
+      const tableHeaders = document.querySelectorAll('th');
+      tableHeaders.forEach((header, index) => {
+        header.textContent = trans.section2.tableHeaders[index];
+      });
+      
+      // Cartes
+      const cards = document.querySelectorAll('.card p');
+      cards.forEach((card, index) => {
+        card.textContent = trans.cards[index];
+      });
+      
+      // Footer
+      document.querySelector('footer h3').textContent = trans.footer.title;
+      document.querySelector('footer input').placeholder = trans.footer.placeholder;
+      document.querySelector('footer button').textContent = trans.footer.buttonText;
+      document.querySelector('.footer-bottom').textContent = trans.footer.copyright;
+    }
+
+    // Gestionnaire d'événement pour ouvrir/fermer le menu des langues
+    document.getElementById('langSwitch').addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.getElementById('langMenu').classList.toggle('active');
+    });
+    
+    // Gestionnaire d'événement pour sélectionner une langue
+    document.querySelectorAll('.language-option').forEach(option => {
+      option.addEventListener('click', function() {
+        switchLanguage(this.getAttribute('data-lang'));
+      });
+    });
+    
+    // Fermer le menu si on clique ailleurs sur la page
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('#langMenu') && !e.target.closest('#langSwitch')) {
+        document.getElementById('langMenu').classList.remove('active');
+      }
+    });
+    
+    // Initialiser l'interface avec la langue par défaut
+    updateInterface();
+  </script>
+
+  <!-- Script pour le calculateur d'empreinte carbone -->
+  <script>
+    // Mettre à jour les valeurs affichées des sliders
+    document.getElementById('flights').addEventListener('input', function() {
+      document.getElementById('flights-value').textContent = this.value;
+    });
+
+    // Calculer l'empreinte carbone
+    document.getElementById('calculate-btn').addEventListener('click', function() {
+      // Récupérer toutes les valeurs
+      const transportation = parseFloat(document.getElementById('transportation').value);
+      const flights = parseFloat(document.getElementById('flights').value);
+      const meat = parseFloat(document.getElementById('meat').value);
+      const energy = parseFloat(document.getElementById('energy').value);
+      const shopping = parseFloat(document.getElementById('shopping').value);
+      const ecoPractices = parseFloat(document.getElementById('eco-practices').value);
+      
+      // Calcul de base
+      const flightEmissions = flights * 1.2; // 1.2 tonnes par vol en moyenne
+      const totalEmissions = transportation + flightEmissions + meat + energy + shopping;
+      // Réduction due aux pratiques écologiques
+      const finalEmissions = totalEmissions * ecoPractices;
+      
+      // Afficher le résultat arrondi à une décimale
+      const roundedEmissions = Math.round(finalEmissions * 10) / 10;
+      document.getElementById('co2-result').textContent = roundedEmissions + ' tonnes de CO2';
+      
+      // Positionner le marqueur sur la jauge (de 0 à 20 tonnes)
+      const percentage = Math.min((roundedEmissions / 20) * 100, 100);
+      document.getElementById('co2-marker').style.left = `${percentage}%`;
+      
+      // Comparer avec la moyenne mondiale
+      const average = 4.8; // tonnes de CO2 par personne
+      let comparisonText;
+      
+      if (roundedEmissions < average) {
+        comparisonText = `Bravo ! Votre empreinte est ${Math.round((average - roundedEmissions) * 10) / 10} tonnes en dessous de la moyenne mondiale de 4,8 tonnes par personne.`;
+      } else if (roundedEmissions > average) {
+        comparisonText = `Votre empreinte est ${Math.round((roundedEmissions - average) * 10) / 10} tonnes au-dessus de la moyenne mondiale de 4,8 tonnes par personne.`;
+      } else {
+        comparisonText = `Votre empreinte correspond exactement à la moyenne mondiale de 4,8 tonnes par personne.`;
+      }
+      
+      document.getElementById('comparison').textContent = comparisonText;
+      
+      // Afficher une équivalence réelle
+      showRealWorldEquivalent(roundedEmissions);
+      
+      // Générer des conseils personnalisés
+      const tipsList = document.getElementById('tips-list');
+      tipsList.innerHTML = '';
+      
+      // Ajouter des conseils en fonction des valeurs élevées
+      if (transportation > 3) {
+        addTip("Envisagez le covoiturage, les transports en commun ou l'achat d'un véhicule plus économe en carburant.");
+      }
+      
+      if (flights > 2) {
+        addTip("Réduisez vos voyages en avion ou compensez leurs émissions de carbone via des programmes certifiés.");
+      }
+      
+      if (meat > 1.5) {
+        addTip("Essayez d'augmenter le nombre de repas végétariens par semaine pour réduire votre impact lié à la consommation de viande.");
+      }
+      
+      if (energy > 2) {
+        addTip("Investissez dans l'isolation de votre logement et les appareils économes en énergie.");
+      }
+      
+      if (shopping > 1.5) {
+        addTip("Privilégiez l'achat d'occasion, la réparation et prolongez la durée de vie de vos objets.");
+      }
+      
+      // Ajouter des conseils généraux si la liste est vide
+      if (tipsList.children.length === 0) {
+        addTip("Continuez vos bonnes pratiques et partagez-les avec votre entourage !");
+        addTip("Pensez à soutenir les projets de reforestation pour compenser votre empreinte résiduelle.");
+      }
+      
+      // Afficher le conteneur de résultats
+      document.getElementById('result').classList.add('active');
+      
+      // Faire défiler jusqu'au résultat
+      document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    
+    // Fonction pour ajouter un conseil
+    function addTip(text) {
+      const li = document.createElement('li');
+      li.textContent = text;
+      document.getElementById('tips-list').appendChild(li);
+    }
+    
+    // Fonction pour afficher une équivalence concrète dans la vie réelle
+    function showRealWorldEquivalent(tonnes) {
+      const equivalentImg = document.getElementById('equivalent-img');
+      const equivalentText = document.getElementById('equivalent-text');
+      
+      // Tableau d'équivalences par ordre croissant de poids CO2
+      const equivalents = [
+        {
+          max: 0.5,
+          img: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dHJlZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+          text: "Équivalent à la plantation de 25 arbres nécessaire pour compenser cette empreinte, ou à la production de 50 kg de viande de bœuf."
+        },
+        {
+          max: 1,
+          img: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c21hcnRwaG9uZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+          text: "Équivalent à la production de 100 smartphones, ou à la conduite de 5 000 km en voiture classique, ou encore à la consommation de 450 kg de viande de bœuf."
+        },
+        {
+          max: 1.5,
+          img: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+          text: "Équivalent à 7 500 km parcourus en voiture classique, à la consommation alimentaire annuelle d'un végétarien, ou au chauffage annuel d'un petit appartement bien isolé."
+        },
+        {
+          max: 2.5,
+          img: "https://images.unsplash.com/photo-1621155346337-1d19476ba7d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+          text: "Équivalent au gaspillage alimentaire annuel de 3 personnes, au poids de 500 briques, ou à la charge utile d'un petit camion."
+        },
+        {
+          max: 3.5,
+          img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JvdXAlMjBvZiUyMHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+          text: "Équivalent à la consommation électrique annuelle de 2 foyers français, à l'empreinte carbone d'un vol Paris-Dubai aller-retour, ou au poids de 875 rames de papier A4."
+        },
+        {
+          max: 5,
+          img: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZWxlcGhhbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+          text: "Équivalent au poids de 2 éléphants adultes (5 tonnes), à un aller-retour Paris-New York en avion, ou à la production de 500 kg de chocolat industriel."
+        },
+        {
+          max: 6.5,
+          img: "https://images.unsplash.com/photo-1551313158-dc9f3e00137e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29uY3JldGUlMjBtaXhlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+          text: "Équivalent à la fabrication de 3 tonnes de ciment, à l'empreinte carbone annuelle moyenne d'un Indien, ou à la charge d'une bétonnière pleine."
+        },
+        {
+          max: 8,
+          img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+          text: "Équivalent à la fabrication d'une voiture de taille moyenne, à la combustion de 3 200 litres d'essence, ou au poids d'un camion de pompiers vide."
+        },
+        {
+          max: 10,
+          img: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+          text: "Équivalent au poids d'un bus scolaire vide, à l'empreinte carbone annuelle moyenne d'un Européen, ou au CO2 émis pour produire 5 000 bouteilles en plastique d'1L."
+        },
+        {
+          max: 12,
+          img: "https://images.unsplash.com/photo-1598889600441-532eba6a457f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cmhpbm9jZXJvc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+          text: "Équivalent au poids de 3 rhinocéros adultes, à la quantité de CO2 absorbée par 600 arbres en un an, ou à l'empreinte de la construction d'une petite maison."
+        },
+        {
+          max: 15,
+          img: "https://images.unsplash.com/photo-1531265726475-52ad60219627?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YWlyY3JhZnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+          text: "Équivalent à l'empreinte d'un vol long-courrier pour une famille de 4 personnes, au poids d'un petit avion de tourisme, ou à la production de 7 500 bouteilles de vin."
+        },
+        {
+          max: 18,
+          img: "https://images.unsplash.com/photo-1586126341058-14b836fcf5bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dHJ1Y2t8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+          text: "Équivalent au poids d'un camion 18 tonnes à vide, à l'empreinte carbone annuelle d'un Américain moyen, ou à la production de 4 500 kg de bœuf."
+        },
+        {
+          max: 20,
+          img: "https://images.unsplash.com/photo-1518458357619-693473d3ce2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8b2lsJTIwYmFycmVsc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+          text: "Équivalent à la combustion de 8 000 litres de pétrole, à l'empreinte de plus de 20 vols transatlantiques, ou au poids de 5 éléphants adultes."
+        },
+        {
+          max: 25,
+          img: "https://images.unsplash.com/photo-1599075456280-514406d10190?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aWNlYmVyZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+          text: "Équivalent à la fonte de 75m² de banquise arctique, à la déforestation de 2 500m² de forêt tropicale, ou au poids d'un semi-remorque chargé."
+        },
+        {
+          max: Infinity,
+          img: "https://images.unsplash.com/photo-1576860525375-4e7d64fa71e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Z2xvYmFsJTIwd2FybWluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+          text: "Équivalent à plus de 5 fois l'empreinte carbone annuelle moyenne mondiale par personne, au poids d'une baleine bleue, ou à la quantité de CO2 que 1 250 arbres absorbent en un an."
+        }
+      ];
+      
+      // Trouver l'équivalence appropriée
+      const equivalent = equivalents.find(eq => tonnes <= eq.max);
+      
+      // Mettre à jour l'image et le texte
+      equivalentImg.src = equivalent.img;
+      equivalentText.textContent = equivalent.text;
+    }
+  </script>
+</body>
+</html>
